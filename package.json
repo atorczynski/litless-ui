@@ -1,14 +1,23 @@
 {
   "name": "litless-ui",
-  "private": true,
+  "private": false,
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./dist/components": "./dist/components"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "storybook dev -p 6006",
+    "build": "tsc",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
