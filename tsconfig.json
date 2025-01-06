@@ -24,6 +24,13 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "outDir": "./dist",
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "plugins": [
+      {
+        "name": "prettier-plugin-tailwindcss"
+      },
+      { "name": "typescript-plugin-css-modules" }
+    ]
   },
-  "include": ["src/components/**/*"]
+  "include": ["src/components/**/*", "globals.d.ts", "src/types/**/*", "src/styles/**/*"]
 }
