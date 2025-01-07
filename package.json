@@ -25,7 +25,8 @@
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "lit": "^3.2.1",
-    "lit-element": "^3.0.0"
+    "lit-element": "^3.0.0",
+    "litless-ui": "^0.0.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
