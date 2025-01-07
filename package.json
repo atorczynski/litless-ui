@@ -22,6 +22,7 @@
     "copy-css": "cp src/output.css dist/output.css"
   },
   "dependencies": {
+    "tailwindcss": "^3.4.17",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "lit": "^3.2.1",
