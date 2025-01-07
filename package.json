@@ -2,7 +2,7 @@
   "name": "litless-ui",
   "private": false,
   "main": "index.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "customElements": "./custom-elements.json",
   "type": "module",
   "exports": {
