@@ -32,5 +32,5 @@
       { "name": "typescript-plugin-css-modules" }
     ]
   },
-  "include": ["src/components/**/*", "globals.d.ts", "src/types/**/*", "src/styles/**/*", "custom-elements.json"]
+  "include": ["src/components/**/*", "globals.d.ts", "src/types/**/*", "src/styles/**/*"]
 }

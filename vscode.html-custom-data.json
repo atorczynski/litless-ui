@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/main/docs/customData.schema.json",
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "less-button",
+      "description": "\n---\n",
+      "attributes": [
+        {
+          "name": "variant",
+          "values": [{ "name": "primary" }, { "name": "secondary" }]
+        },
+        {
+          "name": "size",
+          "values": [{ "name": "sm" }, { "name": "md" }, { "name": "lg" }]
+        },
+        { "name": "disabled", "values": [] },
+        { "name": "loading", "values": [] }
+      ],
+      "references": []
+    },
+    {
+      "name": "loading-spinner",
+      "description": "\n---\n",
+      "attributes": [],
+      "references": []
+    }
+  ]
+}
