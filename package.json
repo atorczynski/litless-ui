@@ -25,11 +25,11 @@
     "publish-beta": "pnpm publish --no-git-checks --access public --tag beta"
   },
   "dependencies": {
-    "@changesets/cli": "^2.27.11",
     "lit": "^3.2.1",
     "lit-element": "^3.0.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.11",
     "@chromatic-com/storybook": "^3.2.2",
     "@custom-elements-manifest/analyzer": "^0.10.4",
     "@eslint/js": "^9.17.0",
