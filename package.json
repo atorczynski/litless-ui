@@ -19,7 +19,9 @@
     "build": "pnpm custom-elements-manifest analyze --config custom-elements-manifest.config.mjs && tsc --project tsconfig.prod.json && pnpm copy-css",
     "preview": "vite preview",
     "build-storybook": "storybook build",
-    "copy-css": "cp src/output.css dist/output.css"
+    "copy-css": "cp src/output.css dist/output.css",
+    "publish-package": "pnpm changeset publish",
+    "publish-beta": "pnpm publish --no-git-checks --access public --tag beta"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.11",
