@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "pnpm custom-elements-manifest analyze --config custom-elements-manifest.config.mjs && tsc --project tsconfig.prod.json && pnpm copy-css",
+    "build": "pnpm custom-elements-manifest analyze --config custom-elements-manifest.config.mjs && tsc --project tsconfig.prod.json && postcss src/output.css -o dist/output.css",
     "preview": "vite preview",
     "build-storybook": "storybook build",
     "test": "standard",
