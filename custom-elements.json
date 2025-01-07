@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/stories/button.stories.tsx",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{ title: 'Components/Button', component: 'less-button', tags: ['autodocs'], render: args => html`<less-button variant=${args.variant} size=${args.size} .disabled=${args.disabled} .loading=${args.loading} >${args.slot}</less-button >`, argTypes: { slot: { control: 'text' }, variant: { control: 'select', options: ['primary', 'secondary'], table: { defaultValue: { summary: 'primary' } } }, size: { control: 'select', options: ['sm', 'md', 'lg'] }, disabled: { control: 'boolean' }, loading: { control: 'boolean' } } }"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "Story"
+          },
+          "default": "{ args: { slot: 'Click me', variant: 'primary', size: 'md', disabled: false, loading: false } }"
+        },
+        {
+          "kind": "variable",
+          "name": "Secondary",
+          "type": {
+            "text": "Story"
+          },
+          "default": "{ args: { slot: 'Secondary Button', variant: 'secondary', size: 'md', disabled: false, loading: false } }"
+        },
+        {
+          "kind": "variable",
+          "name": "LongText",
+          "type": {
+            "text": "Story"
+          },
+          "default": "{ args: { slot: 'This is a button with a very long text', variant: 'primary', size: 'md', disabled: false, loading: false } }"
+        },
+        {
+          "kind": "variable",
+          "name": "Loading",
+          "type": {
+            "text": "Story"
+          },
+          "default": "{ args: { slot: 'Loading...', variant: 'primary', size: 'md', disabled: false, loading: true } }"
+        },
+        {
+          "kind": "variable",
+          "name": "Disabled",
+          "type": {
+            "text": "Story"
+          },
+          "default": "{ args: { slot: 'Disabled', variant: 'primary', size: 'md', disabled: true, loading: false } }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "src/stories/button.stories.tsx"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "src/stories/button.stories.tsx"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Secondary",
+          "declaration": {
+            "name": "Secondary",
+            "module": "src/stories/button.stories.tsx"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "LongText",
+          "declaration": {
+            "name": "LongText",
+            "module": "src/stories/button.stories.tsx"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Loading",
+          "declaration": {
+            "name": "Loading",
+            "module": "src/stories/button.stories.tsx"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Disabled",
+          "declaration": {
+            "name": "Disabled",
+            "module": "src/stories/button.stories.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/styles/tailwind.lit.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailwindStyles",
+          "default": "css` ${unsafeCSS(styles)} ${unsafeCSS(globalStyles)} `"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tailwindStyles",
+          "declaration": {
+            "name": "tailwindStyles",
+            "module": "src/styles/tailwind.lit.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/src/styles/tailwind.lit.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailwindStyles",
+          "default": "css ` ${unsafeCSS(styles)} ${unsafeCSS(globalStyles)} `"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tailwindStyles",
+          "declaration": {
+            "name": "tailwindStyles",
+            "module": "dist/src/styles/tailwind.lit.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/button/button.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "buttonStyles",
+          "default": "css``"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "buttonStyles",
+          "declaration": {
+            "name": "buttonStyles",
+            "module": "src/components/button/button.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/button/button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Button",
+          "members": [
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[tailwindStyles]"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'primary' | 'secondary'"
+              },
+              "default": "'primary'"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'sm' | 'md' | 'lg'"
+              },
+              "default": "'md'"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "base",
+              "type": {
+                "text": "string"
+              },
+              "default": "'rounded-md px-4 py-2 text-white transition-colors duration-75'"
+            },
+            {
+              "kind": "method",
+              "name": "getVariantClass",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getSizeClass",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getDisabledClass",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getLoadingClass",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Button",
+          "declaration": {
+            "name": "Button",
+            "module": "src/components/button/button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/spinner/spinner.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "LoadingSpinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "array"
+              },
+              "static": true,
+              "default": "[tailwindStyles]"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "LoadingSpinner",
+          "declaration": {
+            "name": "LoadingSpinner",
+            "module": "src/components/spinner/spinner.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/src/components/button/button.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "Button",
+          "default": "class Button extends LitElement { constructor() { super(...arguments); this.variant = 'primary'; this.size = 'md'; this.disabled = false; this.loading = false; this.base = 'rounded-md px-4 py-2 text-white transition-colors duration-75'; } getVariantClass() { const variants = { primary: 'bg-primary hover:bg-primary-dark', secondary: 'bg-secondary hover:bg-secondary-dark' }; return `${this.base} ${variants[this.variant]}`; } getSizeClass() { const sizes = { sm: 'px-2 py-1 text-sm', md: 'px-4 py-2 text-base', lg: 'px-6 py-3 text-lg' }; return sizes[this.size]; } getDisabledClass() { return this.disabled ? 'bg-gray-500 cursor-not-allowed hover:bg-gray-500' : ''; } getLoadingClass() { return this.loading ? 'opacity-50 cursor-not-allowed' : ''; } render() { return html ` <button variant=${this.variant} size=${this.size} ?disabled=${this.disabled} ?loading=${this.loading} class=\"${this.getVariantClass()} ${this.getSizeClass()} ${this.getDisabledClass()} ${this.getLoadingClass()}\" > ${this.loading ? html `<loading-spinner></loading-spinner>` : html `<slot></slot>`} </button> `; } }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Button",
+          "declaration": {
+            "name": "Button",
+            "module": "dist/src/components/button/button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/src/components/button/button.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "buttonStyles",
+          "default": "css ``"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "buttonStyles",
+          "declaration": {
+            "name": "buttonStyles",
+            "module": "dist/src/components/button/button.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/src/components/spinner/spinner.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "LoadingSpinner",
+          "default": "class LoadingSpinner extends LitElement { render() { return html ` <div class=\"inline-block animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]\" role=\"status\" > <span class=\"!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]\" > Loading... </span> </div> `; } }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "LoadingSpinner",
+          "declaration": {
+            "name": "LoadingSpinner",
+            "module": "dist/src/components/spinner/spinner.js"
+          }
+        }
+      ]
+    }
+  ]
+}
