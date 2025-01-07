@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { tailwindStyles } from '../../styles/tailwind.lit.js';
 
-@customElement('loading-spinner')
+@customElement('less-spinner')
 export class LoadingSpinner extends LitElement {
   static styles = [tailwindStyles];
 
@@ -24,6 +24,6 @@ export class LoadingSpinner extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'loading-spinner': LoadingSpinner;
+    'less-spinner': LoadingSpinner;
   }
 }
