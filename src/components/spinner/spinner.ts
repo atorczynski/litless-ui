@@ -1,10 +1,13 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
 import { tailwindStyles } from '../../styles/tailwind.lit.js';
 
 @customElement('less-spinner')
 export class LoadingSpinner extends LitElement {
   static styles = [tailwindStyles];
+
+  @state()
+  private _isLoading = false;
 
   render() {
     return html`
@@ -15,7 +18,7 @@ export class LoadingSpinner extends LitElement {
         <span
           class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
         >
-          Loading...
+          ${this._isLoading ? 'Loading...' : ''}
         </span>
       </div>
     `;
