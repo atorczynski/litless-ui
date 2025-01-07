@@ -22,13 +22,12 @@
     "copy-css": "cp src/output.css dist/output.css"
   },
   "dependencies": {
-    "tailwindcss": "^3.4.17",
-    "@tailwindcss/forms": "^0.5.9",
-    "@tailwindcss/typography": "^0.5.15",
     "lit": "^3.2.1",
     "lit-element": "^3.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
     "@chromatic-com/storybook": "^3.2.2",
     "@custom-elements-manifest/analyzer": "^0.10.4",
     "@eslint/js": "^9.17.0",
