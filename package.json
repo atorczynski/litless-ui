@@ -2,7 +2,7 @@
   "name": "litless-ui",
   "private": false,
   "main": "index.js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "type": "module",
   "exports": {
     ".": {
@@ -22,12 +22,11 @@
     "copy-css": "cp src/output.css dist/output.css"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.11",
     "lit": "^3.2.1",
     "lit-element": "^3.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.9",
-    "@tailwindcss/typography": "^0.5.15",
     "@chromatic-com/storybook": "^3.2.2",
     "@custom-elements-manifest/analyzer": "^0.10.4",
     "@eslint/js": "^9.17.0",
@@ -36,6 +35,8 @@
     "@storybook/test": "^8.4.7",
     "@storybook/web-components": "^8.4.7",
     "@storybook/web-components-vite": "^8.4.7",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
     "custom-element-vs-code-integration": "^1.4.1",
     "custom-elements-manifest": "^2.1.0",
