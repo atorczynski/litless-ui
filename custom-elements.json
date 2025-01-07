@@ -4,6 +4,27 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "dist/styles/tailwind.lit.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "tailwindStyles",
+          "default": "css ` ${unsafeCSS(styles)} `"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "tailwindStyles",
+          "declaration": {
+            "name": "tailwindStyles",
+            "module": "dist/styles/tailwind.lit.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/stories/button.stories.tsx",
       "declarations": [
         {
@@ -113,7 +134,7 @@
         {
           "kind": "variable",
           "name": "tailwindStyles",
-          "default": "css` ${unsafeCSS(styles)} ${unsafeCSS(globalStyles)} `"
+          "default": "css` ${unsafeCSS(styles)} `"
         }
       ],
       "exports": [
@@ -129,21 +150,63 @@
     },
     {
       "kind": "javascript-module",
-      "path": "dist/src/styles/tailwind.lit.js",
+      "path": "dist/components/button/button.js",
       "declarations": [
         {
           "kind": "variable",
-          "name": "tailwindStyles",
-          "default": "css ` ${unsafeCSS(styles)} ${unsafeCSS(globalStyles)} `"
+          "name": "Button",
+          "default": "class Button extends LitElement { constructor() { super(...arguments); this.variant = 'primary'; this.size = 'md'; this.disabled = false; this.loading = false; this.base = 'rounded-md px-4 py-2 text-white transition-colors duration-75'; } getVariantClass() { const variants = { primary: 'bg-primary hover:bg-primary-dark', secondary: 'bg-secondary hover:bg-secondary-dark' }; return `${this.base} ${variants[this.variant]}`; } getSizeClass() { const sizes = { sm: 'px-2 py-1 text-sm', md: 'px-4 py-2 text-base', lg: 'px-6 py-3 text-lg' }; return sizes[this.size]; } getDisabledClass() { return this.disabled ? 'bg-gray-500 cursor-not-allowed hover:bg-gray-500' : ''; } getLoadingClass() { return this.loading ? 'opacity-50 cursor-not-allowed' : ''; } render() { return html ` <button variant=${this.variant} size=${this.size} ?disabled=${this.disabled} ?loading=${this.loading} class=\"${this.getVariantClass()} ${this.getSizeClass()} ${this.getDisabledClass()} ${this.getLoadingClass()}\" > ${this.loading ? html `<loading-spinner></loading-spinner>` : html `<slot></slot>`} </button> `; } }"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "tailwindStyles",
+          "name": "Button",
           "declaration": {
-            "name": "tailwindStyles",
-            "module": "dist/src/styles/tailwind.lit.js"
+            "name": "Button",
+            "module": "dist/components/button/button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/button/button.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "buttonStyles",
+          "default": "css ``"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "buttonStyles",
+          "declaration": {
+            "name": "buttonStyles",
+            "module": "dist/components/button/button.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/spinner/spinner.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "LoadingSpinner",
+          "default": "class LoadingSpinner extends LitElement { render() { return html ` <div class=\"inline-block animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]\" role=\"status\" > <span class=\"!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]\" > Loading... </span> </div> `; } }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "LoadingSpinner",
+          "declaration": {
+            "name": "LoadingSpinner",
+            "module": "dist/components/spinner/spinner.js"
           }
         }
       ]
@@ -180,20 +243,12 @@
           "members": [
             {
               "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[tailwindStyles]"
-            },
-            {
-              "kind": "field",
               "name": "variant",
               "type": {
                 "text": "'primary' | 'secondary'"
               },
-              "default": "'primary'"
+              "default": "'primary'",
+              "attribute": "variant"
             },
             {
               "kind": "field",
@@ -201,7 +256,8 @@
               "type": {
                 "text": "'sm' | 'md' | 'lg'"
               },
-              "default": "'md'"
+              "default": "'md'",
+              "attribute": "size"
             },
             {
               "kind": "field",
@@ -209,7 +265,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "disabled"
             },
             {
               "kind": "field",
@@ -217,7 +274,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "loading"
             },
             {
               "kind": "field",
@@ -246,16 +304,47 @@
               "kind": "method",
               "name": "getLoadingClass",
               "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'primary' | 'secondary'"
+              },
+              "default": "'primary'",
+              "fieldName": "variant"
             },
             {
-              "kind": "method",
-              "name": "render"
+              "name": "size",
+              "type": {
+                "text": "'sm' | 'md' | 'lg'"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "loading"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "less-button",
           "customElement": true
         }
       ],
@@ -263,6 +352,14 @@
         {
           "kind": "js",
           "name": "Button",
+          "declaration": {
+            "name": "Button",
+            "module": "src/components/button/button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "less-button",
           "declaration": {
             "name": "Button",
             "module": "src/components/button/button.ts"
@@ -278,25 +375,12 @@
           "kind": "class",
           "description": "",
           "name": "LoadingSpinner",
-          "members": [
-            {
-              "kind": "field",
-              "name": "styles",
-              "type": {
-                "text": "array"
-              },
-              "static": true,
-              "default": "[tailwindStyles]"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "loading-spinner",
           "customElement": true
         }
       ],
@@ -308,68 +392,13 @@
             "name": "LoadingSpinner",
             "module": "src/components/spinner/spinner.ts"
           }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/src/components/button/button.js",
-      "declarations": [
+        },
         {
-          "kind": "variable",
-          "name": "Button",
-          "default": "class Button extends LitElement { constructor() { super(...arguments); this.variant = 'primary'; this.size = 'md'; this.disabled = false; this.loading = false; this.base = 'rounded-md px-4 py-2 text-white transition-colors duration-75'; } getVariantClass() { const variants = { primary: 'bg-primary hover:bg-primary-dark', secondary: 'bg-secondary hover:bg-secondary-dark' }; return `${this.base} ${variants[this.variant]}`; } getSizeClass() { const sizes = { sm: 'px-2 py-1 text-sm', md: 'px-4 py-2 text-base', lg: 'px-6 py-3 text-lg' }; return sizes[this.size]; } getDisabledClass() { return this.disabled ? 'bg-gray-500 cursor-not-allowed hover:bg-gray-500' : ''; } getLoadingClass() { return this.loading ? 'opacity-50 cursor-not-allowed' : ''; } render() { return html ` <button variant=${this.variant} size=${this.size} ?disabled=${this.disabled} ?loading=${this.loading} class=\"${this.getVariantClass()} ${this.getSizeClass()} ${this.getDisabledClass()} ${this.getLoadingClass()}\" > ${this.loading ? html `<loading-spinner></loading-spinner>` : html `<slot></slot>`} </button> `; } }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Button",
-          "declaration": {
-            "name": "Button",
-            "module": "dist/src/components/button/button.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/src/components/button/button.styles.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "buttonStyles",
-          "default": "css ``"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "buttonStyles",
-          "declaration": {
-            "name": "buttonStyles",
-            "module": "dist/src/components/button/button.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/src/components/spinner/spinner.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "LoadingSpinner",
-          "default": "class LoadingSpinner extends LitElement { render() { return html ` <div class=\"inline-block animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]\" role=\"status\" > <span class=\"!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]\" > Loading... </span> </div> `; } }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "LoadingSpinner",
+          "kind": "custom-element-definition",
+          "name": "loading-spinner",
           "declaration": {
             "name": "LoadingSpinner",
-            "module": "dist/src/components/spinner/spinner.js"
+            "module": "src/components/spinner/spinner.ts"
           }
         }
       ]

@@ -24,6 +24,9 @@ export class Button extends LitElement {
   base = 'rounded-md px-4 py-2 text-white transition-colors duration-75';
 
   private getVariantClass() {
+    if (this.disabled) {
+      return `${this.base} bg-gray-500 hover:bg-gray-500 opacity-50 cursor-not-allowed`;
+    }
     const variants = {
       primary: 'bg-primary hover:bg-primary-dark',
       secondary: 'bg-secondary hover:bg-secondary-dark'
@@ -40,10 +43,6 @@ export class Button extends LitElement {
     return sizes[this.size];
   }
 
-  private getDisabledClass() {
-    return this.disabled ? 'bg-gray-500 cursor-not-allowed hover:bg-gray-500' : '';
-  }
-
   private getLoadingClass() {
     return this.loading ? 'opacity-50 cursor-not-allowed' : '';
   }
@@ -55,7 +54,7 @@ export class Button extends LitElement {
         size=${this.size}
         ?disabled=${this.disabled}
         ?loading=${this.loading}
-        class="${this.getVariantClass()} ${this.getSizeClass()} ${this.getDisabledClass()} ${this.getLoadingClass()}"
+        class="${this.getVariantClass()} ${this.getSizeClass()} ${this.getLoadingClass()}"
       >
         ${this.loading ? html`<loading-spinner></loading-spinner>` : html`<slot></slot>`}
       </button>
