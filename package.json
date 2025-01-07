@@ -19,6 +19,7 @@
     "build": "pnpm custom-elements-manifest analyze --config custom-elements-manifest.config.mjs && tsc --project tsconfig.prod.json && pnpm copy-css",
     "preview": "vite preview",
     "build-storybook": "storybook build",
+    "test": "standard",
     "copy-css": "cp src/output.css dist/output.css",
     "publish-package": "pnpm changeset publish",
     "publish-beta": "pnpm publish --no-git-checks --access public --tag beta"
@@ -34,6 +35,7 @@
     "@eslint/js": "^9.17.0",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/blocks": "^8.4.7",
+    "standard": "17.1.0",
     "@storybook/test": "^8.4.7",
     "@storybook/web-components": "^8.4.7",
     "@storybook/web-components-vite": "^8.4.7",
