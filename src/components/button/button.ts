@@ -2,8 +2,7 @@ import { html } from 'lit';
 import { LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { tailwindStyles } from '../../styles/tailwind.lit.js';
-
-import '../spinner/spinner.js';
+import '../spinner/spinner.ts';
 
 @customElement('less-button')
 export class Button extends LitElement {
@@ -19,7 +18,7 @@ export class Button extends LitElement {
   disabled: boolean = false;
 
   @property({ type: Boolean })
-  loading: boolean = false;
+  loading: boolean = true;
 
   base = 'rounded-md px-4 py-2 text-white transition-colors duration-75';
 
@@ -56,7 +55,7 @@ export class Button extends LitElement {
         ?loading=${this.loading}
         class="${this.getVariantClass()} ${this.getSizeClass()} ${this.getLoadingClass()}"
       >
-        ${this.loading ? html`<loading-spinner></loading-spinner>` : html`<slot></slot>`}
+        ${this.loading ? html`<less-spinner></less-spinner>` : html`<slot></slot>`}
       </button>
     `;
   }
