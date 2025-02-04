@@ -14,10 +14,10 @@ export class Button extends LitElement {
   @property({ type: String })
   size: 'sm' | 'md' | 'lg' = 'md';
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, reflect: true })
   disabled: boolean = false;
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, reflect: true })
   loading: boolean = true;
 
   base = 'rounded-md px-4 py-2 text-white transition-colors duration-75';
