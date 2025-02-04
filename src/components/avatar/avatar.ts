@@ -23,13 +23,12 @@ export class Avatar extends LitElement {
   baseclass = 'w-12 h-12 overflow-hidden';
 
   private getShapeClass() {
-    if (this.shape === 'circle') {
-      return 'rounded-full';
-    }
-    if (this.shape === 'square') {
-      return 'rounded-none';
-    }
-    return 'rounded-md';
+    const shapes = {
+      circle: 'rounded-full',
+      square: 'rounded-none',
+      rounded: 'rounded-md'
+    };
+    return shapes[this.shape];
   }
 
   private getLabelClass() {
