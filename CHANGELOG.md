@@ -1,5 +1,11 @@
 # litless-ui
 
+## 0.1.0
+
+### Minor Changes
+
+- ac266aa: Added avatar component.
+
 ## 0.0.13
 
 ### Patch Changes
